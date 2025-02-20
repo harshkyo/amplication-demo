@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { BotList } from "./bot/BotList";
+import { BotCreate } from "./bot/BotCreate";
+import { BotEdit } from "./bot/BotEdit";
+import { BotShow } from "./bot/BotShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -17,7 +21,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="Bot"
+          list={BotList}
+          edit={BotEdit}
+          create={BotCreate}
+          show={BotShow}
+        />
+      </Admin>
     </div>
   );
 };
